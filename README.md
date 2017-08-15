@@ -16,17 +16,20 @@ React Native App 版本升级封装库
 
 二、使用
 
-【 Android 平台 】
+【 Android 】
 
-Http.get(Api.api_checkupdate, null, false, (result)=>{  
+```Java
+Http.get(Api.api_checkupdate, null, false, (result)=>{  
     if(result.ok) {  
         // 下载最新Apk  
-        NativeModules.upgrademodule.upgrade(this.state.apkUrl);  
+        NativeModules.upgrade.upgrade(this.state.apkUrl);  
     }  
 });  
+```
 
-【 iOS 平台 】
+【 iOS 】
 
+```Java
 NativeModules.upgrade.upgrade('1253360366',(msg) =>{  
     if('YES' == msg) {  
        //跳转到APP Stroe  
@@ -35,3 +38,4 @@ NativeModules.upgrade.upgrade('1253360366',(msg) =>{
         Toast.show('当前为最新版本');  
     }  
 })  
+```
