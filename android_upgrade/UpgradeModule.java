@@ -20,7 +20,7 @@ public class UpgradeModule extends ReactContextBaseJavaModule {
 
     @Override
     public String getName() {
-        return "upgrademodule";
+        return "upgrade";
     }
 
     @ReactMethod
