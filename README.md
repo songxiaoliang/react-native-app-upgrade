@@ -1,6 +1,18 @@
 # react-native-app-upgrade
 React Native App 版本升级封装库
 
+### 功能模块
+#### Android：
+##### （1）版本检测
+##### （2）版本下载
+##### （3）进度提示
+##### （4）下载完成后安装
+
+#### iOS
+##### （1）版本检测
+##### （2）跳转App Store
+
+
 一、配置
 
 【 Android 平台 】
