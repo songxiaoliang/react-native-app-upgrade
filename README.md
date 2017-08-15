@@ -13,6 +13,7 @@ React Native App 版本升级封装库
 ##### （2）跳转App Store
 
 
+#### 
 一、配置
 
 【 Android 平台 】
