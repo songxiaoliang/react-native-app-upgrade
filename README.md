@@ -43,10 +43,10 @@ Http.get(Api.api_checkupdate, null, false, (result)=>{  
 【 iOS 】
 
 ```Java
-NativeModules.upgrade.upgrade('1253360366',(msg) =>{  
+NativeModules.upgrade.upgrade('Apple ID',(msg) =>{  
     if('YES' == msg) {  
        //跳转到APP Stroe  
-       NativeModules.upgrade.openAPPStore('1253360366');  
+       NativeModules.upgrade.openAPPStore('Apple ID');  
     } else {  
         Toast.show('当前为最新版本');  
     }  
