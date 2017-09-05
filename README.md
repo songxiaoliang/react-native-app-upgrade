@@ -20,9 +20,15 @@ React Native App 版本升级封装库
 
 1. 将upgrade包拷贝到你的Android项目src目录下。
 2. 在AndroidMainfest.xml文件下添加权限和服务配置
-<uses-permission android:name="android.permission.INTERNET" />  
-<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>   
-
+```Java
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>   
+```
+```Java
+    <service
+        android:name=".upgrade.DownloadService"
+        android:exported="true" />
+```
 【 iOS 平台 】
 
 将upgrade拷贝到项目目录即可。
