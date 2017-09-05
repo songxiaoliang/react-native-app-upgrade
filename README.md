@@ -25,9 +25,20 @@ React Native App 版本升级封装库
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>   
 ```
 ```Java
-    <service
-        android:name=".upgrade.DownloadService"
-        android:exported="true" />
+    <application
+      android:name=".MainApplication"
+      android:allowBackup="true"
+      android:label="@string/app_name"
+      android:icon="@mipmap/ic_launcher"
+      android:theme="@style/AppTheme">
+      
+        // 省略其他代码...
+        
+        <service
+            android:name=".upgrade.DownloadService"
+            android:exported="true" />
+            
+    </application>
 ```
 【 iOS 平台 】
 
