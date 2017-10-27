@@ -44,8 +44,9 @@ React Native App 版本升级封装库
 ```Java
     <string name="android_auto_update_download_progress">正在下载:%1$d%%</string>
 ```
-4.在MainApplication.java文件下的getPackages方法中添加如下代码：
+4.在MainApplication.java文件下的getPackages方法中添加如下代码：[首先要将UpgradePackage导入]
 ```Java
+    import 项目工程包名.UpgradePackage;
     new UpgradePackage()
 ```
 【 iOS 平台 】
