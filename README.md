@@ -50,6 +50,14 @@ React Native App 版本升级封装库
 
 二、使用
 
+首先导入NativeModules模块：
+
+```Java
+import {
+  NativeModules
+} from 'react-native';
+```
+
 【 Android 】
 
 ```Java
