@@ -35,7 +35,7 @@ React Native App 版本升级封装库
         // 省略其他代码...
         
         <service
-            android:name=".upgrade.DownloadService"
+            android:name="包名目录.DownloadService"
             android:exported="true" />
             
     </application>
