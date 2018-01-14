@@ -115,17 +115,25 @@ public class DownloadService extends IntentService {
     }
 
     private void installAPk(File apkFile) {
-        Intent intent = new Intent(Intent.ACTION_VIEW);
-        //如果没有设置SDCard写权限，或者没有sdcard,apk文件保存在内存中，需要授予权限才能安装
-        try {
-            String[] command = {"chmod", "777", apkFile.toString()};
-            ProcessBuilder builder = new ProcessBuilder(command);
-            builder.start();
-        } catch (IOException ignored) {
+        Intent intent = new Intent();
+        intent.setAction(Intent.ACTION_VIEW);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            String authority = getPackageName() + ".updateFileProvider";
+            Uri apkUri = FileProvider.getUriForFile(this, authority, apkFile);
+            intent.setDataAndType(apkUri, "application/vnd.android.package-archive");
+        } else {
+            //如果没有设置SDCard写权限，或者没有sdcard,apk文件保存在内存中，需要授予权限才能安装
+            try {
+                String[] command = {"chmod", "777", apkFile.toString()};
+                ProcessBuilder builder = new ProcessBuilder(command);
+                builder.start();
+            } catch (IOException ignored) {
+            }
+            intent.setDataAndType(Uri.fromFile(apkFile), "application/vnd.android.package-archive");
+            startActivity(intent);
         }
-        intent.setDataAndType(Uri.fromFile(apkFile), "application/vnd.android.package-archive");
 
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        startActivity(intent);
     }
 }
