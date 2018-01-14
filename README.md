@@ -19,10 +19,26 @@ React Native App 版本升级封装库
 【 Android 平台 】
 
 1. 将【 android_upgrade 】包拷贝到你的Android项目src目录下。
-2. 在AndroidMainfest.xml文件下添加权限和服务配置
+2. 在 app / src / main / res /目录下创建xml资源文件夹，并创建名称为【 update_file_provider 】名称的xml文件，在文件中添加如下代码：
+```java
+    <paths>
+        <!--升级-->
+        <external-cache-path
+            name="update_external_cache"
+            path="." />
+
+        <cache-path
+            name="update_cache"
+            path="." />
+    </paths>
+```
+3. 在AndroidMainfest.xml文件下添加权限和服务配置
 ```Java
     <uses-permission android:name="android.permission.INTERNET" />
+    <!--8.0安装需要的权限-->
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>   
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 ```
 ```Java
     <application
@@ -32,12 +48,23 @@ React Native App 版本升级封装库
       android:icon="@mipmap/ic_launcher"
       android:theme="@style/AppTheme">
       
-        // 省略其他代码...
+        // 添加fileProvider配置代码
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="${applicationId}.updateFileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/update_file_provider" />
+        </provider>
         
+        // 添加Service代码
         <service
             android:name="包名目录.DownloadService"
             android:exported="true" />
             
+            // 省略其他代码...
     </application>
 ```
 3.在你的工程目录中，打开android/app/src/main/res/values/strings.xml文件，添加如下代码:
