@@ -1,12 +1,8 @@
-package com.cloudbusiness.upgrade;
+package com.d3o.android_upgrade;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.text.Html;
-import com.cloudbusiness.R;
 
 class UpdateDialog {
 
