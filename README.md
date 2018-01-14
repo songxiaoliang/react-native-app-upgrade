@@ -58,13 +58,13 @@ React Native App 版本升级封装库
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/update_file_provider" />
         </provider>
-        
+     
         // 添加Service代码
         <service
             android:name=".android_upgrade.DownloadService"
             android:exported="true" />
             
-            // 省略其他代码...
+            // 省略其他代码... 
     </application>
 ```
 3.在你的工程目录中，打开android/app/src/main/res/values/strings.xml文件，添加如下代码:
