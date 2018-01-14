@@ -37,4 +37,5 @@ class UpdateDialog {
         intent.putExtra(Constants.APK_DOWNLOAD_URL, downloadUrl);
         context.startService(intent);
     }
+    
 }
