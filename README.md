@@ -67,11 +67,31 @@ React Native App 版本升级封装库
             // 省略其他代码... 
     </application>
 ```
-3.在你的工程目录中，打开android/app/src/main/res/values/strings.xml文件，添加如下代码:
+4.打开android/app/build.gradle文件，修改 compileSdkVersion 26 buildToolsVersion "26.0.3"，版本指定为26以上即可。如下：
+```Java
+android {
+
+    compileSdkVersion 26
+    buildToolsVersion "26.0.3"
+
+    defaultConfig {
+      ...
+        
+    }
+    splits {
+        ...
+    }
+    buildTypes {
+       ...
+    }
+    
+}
+```
+5.在你的工程目录中，打开android/app/src/main/res/values/strings.xml文件，添加如下代码:
 ```Java
     <string name="android_auto_update_download_progress">正在下载:%1$d%%</string>
 ```
-4.在MainApplication.java文件下的getPackages方法中添加如下代码：[首先要将UpgradePackage导入]
+6.在MainApplication.java文件下的getPackages方法中添加如下代码：[首先要将UpgradePackage导入]
 ```Java
     import 项目工程包名.UpgradePackage;
     new UpgradePackage()
