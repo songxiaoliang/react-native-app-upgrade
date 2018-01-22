@@ -7,8 +7,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.v4.app.NotificationCompat.Builder;
+import android.support.v4.content.FileProvider;
 import android.util.Log;
-
+import android.os.Build;
 import com.cloudbusiness.R;
 
 import java.io.File;
