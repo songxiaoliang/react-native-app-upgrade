@@ -133,8 +133,8 @@ public class DownloadService extends IntentService {
             } catch (IOException ignored) {
             }
             intent.setDataAndType(Uri.fromFile(apkFile), "application/vnd.android.package-archive");
-            startActivity(intent);
         }
+        startActivity(intent);
 
     }
 }
