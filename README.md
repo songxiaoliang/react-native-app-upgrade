@@ -121,6 +121,17 @@ Http.get(Api.api_checkupdate, null, false, (result)=>{  
 });  
 ```
 
+如果需要接收下载进度，可通过如下方式：
+
+```Java
+    componentWillMount(){
+        DeviceEventEmitter.addListener('LOAD_PROGRESS',(msg)=>{
+            let title = "当前下载进度：" + msg 
+            ToastAndroid.show(title, ToastAndroid.SHORT);  
+        }); 
+    } 
+ ```
+ 
 【 iOS 】
 
 ```Java
