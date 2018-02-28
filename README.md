@@ -18,7 +18,7 @@ React Native App 版本升级封装库
 
 【 Android 平台 】
 
-1. 将【 android_upgrade 】包拷贝到你的Android项目包名目录下（appsrc/main/xxxxx）。
+1. 将【 android_upgrade 】包拷贝到你的Android项目包名目录下（app/src/main/com.xxx）。
 2. 在 app / src / main / res /目录下创建xml资源文件夹，并创建名称为【 update_file_provider 】名称的xml文件，在文件中添加如下代码：
 ```java
     <paths>
