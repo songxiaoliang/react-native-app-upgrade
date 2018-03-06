@@ -1,5 +1,5 @@
 # react-native-app-upgrade
-React Native App 版本升级封装库
+React Native App 版本升级封装库，兼容Android 4.4+、5.0、6.0、7.0版本
 
 ### 功能模块
 #### Android：
