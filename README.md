@@ -1,4 +1,5 @@
 # react-native-app-upgrade
+<img src='http://oleeed73x.bkt.clouddn.com/1522417405_153693.png' />
 React Native App 版本升级封装库，兼容Android 4.4+、5.+、6.+、7.+版本
 
 ### 功能模块
