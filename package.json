@@ -1,0 +1,19 @@
+{
+  "name": "react-native-app-upgrade",
+  "version": "1.0.0",
+  "description": "<img src='http://oleeed73x.bkt.clouddn.com/1522417405_153693.png' />",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/puti94/react-native-app-upgrade.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/puti94/react-native-app-upgrade/issues"
+  },
+  "homepage": "https://github.com/puti94/react-native-app-upgrade#readme"
+}
