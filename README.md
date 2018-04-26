@@ -16,26 +16,32 @@
 #### 
 
 
-使用
-```
+##  使用
+   ```
  yarn add https://github.com/puti94/react-native-app-upgrade
  //then
  react-native link react-native-app-
 
- import {androidUpgrade,openAPPStore,addDownListener} from 'react-native-app-upgrade'
 
- if(原生需要升级 && isAndroid){
- androidUpgrade('apk下载地址')
- }
+import {upgrade, openAPPStore, addDownListener} from 'react-native-app-upgrade'
 
- if(isAndroid){
-  addDownListener(progress=>console.log('进度',progress+'%'))
-  }
+if (原生需要升级 && isAndroid) {
+    upgrade('apk下载地址')
+}
 
- if(原生需要升级 && isIOS){
-  openAPPStore('APPID')
-  }
+if (isAndroid) {
+    addDownListener(progress => console.log('进度', progress + '%'))
+}
 
-```
+if (isIOS) {
+    upgrade('appid', (msg) => {
+        if (msg === 'YES') {
+            openAPPStore('APPID')
+        }
+    })
+
+}
+
+   ```
 
 

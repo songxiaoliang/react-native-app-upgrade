@@ -11,17 +11,18 @@ import {
     DeviceEventEmitter
 } from 'react-native'
 
-const upgrade = NativeModules.upgrade;
+const nativeUpgrade = NativeModules.upgrade;
 
 /**
- * android升级
- * @param url
+ * 升级
+ * @param msg   android传入apk地址,ios传入appid
+ * @param callback 只有ios有效，回传检测更新的结果
  */
-export const androidUpgrade = (url) => {
+export const upgrade = (msg, callback = f => f) => {
     if (Platform.OS === 'android') {
-        upgrade.upgrade(url)
-    } else {
-        console.warn('仅限android调用')
+        nativeUpgrade.upgrade(msg)
+    } else if (Platform.OS === 'ios') {
+        nativeUpgrade.upgrade(msg, callback)
     }
 };
 /**
@@ -30,7 +31,7 @@ export const androidUpgrade = (url) => {
  */
 export const openAPPStore = (appid) => {
     if (Platform.OS === 'ios') {
-        upgrade.openAPPStore(appid)
+        nativeUpgrade.openAPPStore(appid)
     } else {
         console.warn('仅限ios调用')
     }
@@ -43,4 +44,3 @@ export const addDownListener = (callBack) => {
         console.warn('仅限android调用')
     }
 };
-
