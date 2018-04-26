@@ -20,7 +20,7 @@
    ```
  yarn add https://github.com/puti94/react-native-app-upgrade
  //then
- react-native link react-native-app-
+ react-native link react-native-app-upgrade
 
 
 import {upgrade, openAPPStore, addDownListener} from 'react-native-app-upgrade'
