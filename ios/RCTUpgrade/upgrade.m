@@ -1,7 +1,7 @@
 
 #import "upgrade.h"
 
-#import "AppDelegate.h"
+#import <UIKit/UIKit.h>
 #import <React/RCTBridgeModule.h>
 
 
