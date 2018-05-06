@@ -101,20 +101,24 @@ android {
 ```java
 
 （1）添加如下代码：
-private String fileProviderAuthorities = "provider";
+    private String fileProviderAuthorities = "provider";
 
 （2）添加如下方法：
-@ReactMethod
-public void setFileProviderAuthorities(String fileProviderAuthorities) {
-  this.fileProviderAuthorities = fileProviderAuthorities;
-}
+    @ReactMethod
+    public void setFileProviderAuthorities(String fileProviderAuthorities) {
+      this.fileProviderAuthorities = fileProviderAuthorities;
+    }
 
 (3) 修改303行代码，替换成如下方法：
-mCameraCaptureURI = FileProvider.getUriForFile(activity,
-  activity.getApplicationContext().getPackageName() + "." + this.fileProviderAuthorities,
-  imageFile);
+    mCameraCaptureURI = FileProvider.getUriForFile(activity,
+      activity.getApplicationContext().getPackageName() + "." + this.fileProviderAuthorities,
+      imageFile);
   
 (4)在使用前，先调用setFileProviderAuthorities方法即可。
+    if(Device.Android) {
+      ImagePicker.setFileProviderAuthorities('updateFileProvider');
+    }
+    ImagePicker.openPicker({...})
 
 ```
 【 iOS 平台 】
