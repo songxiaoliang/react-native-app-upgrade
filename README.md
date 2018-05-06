@@ -96,6 +96,27 @@ android {
     import 项目工程包名.UpgradePackage;
     new UpgradePackage()
 ```
+7.如果项目中使用到了react-native-image-crop-picker，则需要共用同一个FileProvider,修改如下：
+找到/node_modules/react-native-image-crop-picker/android/src/main/java/com.reactnative/ivpusic/imagepicker/PickerModule.java
+```java
+
+（1）添加如下代码：
+private String fileProviderAuthorities = "provider";
+
+（2）添加如下方法：
+@ReactMethod
+public void setFileProviderAuthorities(String fileProviderAuthorities) {
+  this.fileProviderAuthorities = fileProviderAuthorities;
+}
+
+(3) 修改303行代码，替换成如下方法：
+mCameraCaptureURI = FileProvider.getUriForFile(activity,
+  activity.getApplicationContext().getPackageName() + "." + this.fileProviderAuthorities,
+  imageFile);
+  
+(4)在使用前，先调用setFileProviderAuthorities方法即可。
+
+```
 【 iOS 平台 】
 
 将【 ios_upgrade 】拷贝到项目目录即可。
