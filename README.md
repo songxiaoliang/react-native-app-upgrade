@@ -126,7 +126,7 @@ android {
 
 【 iOS 平台 】
 
-将【 ios_upgrade 】拷贝到项目目录即可。
+打开Xcode, 将【 ios_upgrade 】拷贝到项目目录下即可。
 
 二、使用
 
