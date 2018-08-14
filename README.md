@@ -121,6 +121,9 @@ android {
     ImagePicker.openPicker({...})
 
 ```
+
+8.全局搜索com.cloudbusiness将其替换为自己的包名，例如：com.react
+
 【 iOS 平台 】
 
 将【 ios_upgrade 】拷贝到项目目录即可。
