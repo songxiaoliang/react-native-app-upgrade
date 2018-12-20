@@ -1,4 +1,4 @@
-package io.cxjky.taskApp.android_upgrade;
+package com.d3o.android_upgrade;
 
 import android.content.Context;
 import android.content.pm.PackageInfo;
