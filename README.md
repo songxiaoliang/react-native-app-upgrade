@@ -141,10 +141,11 @@ import {
 【 Android 】
 
 ```Java
+// 可通过NativeModules.upgrade.versionName获取apk版本号和远程版本号进行比较
 Http.get(Api.api_checkupdate, null, false, (result)=>{  
     if(result.ok) {  
         // 下载最新Apk  
-        NativeModules.upgrade.upgrade(this.state.apkUrl);  
+        NativeModules.upgrade.upgrade(this.state.apkUrl);
     }  
 });  
 ```
