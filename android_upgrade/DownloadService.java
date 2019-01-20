@@ -2,6 +2,7 @@ package com.cloudbusiness.upgrade;
 
 import android.app.IntentService;
 import android.app.NotificationManager;
+import android.app.NotificationChannel;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
@@ -38,6 +39,13 @@ public class DownloadService extends IntentService {
 
         mNotifyManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         mBuilder = new Builder(this);
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            mBuilder = new Builder(this, "downLoadChannelId");
+        }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            NotificationChannel channel = new NotificationChannel("downLoadChannelId", "downLoadChannel", NotificationManager.IMPORTANCE_HIGH);
+            manager.createNotificationChannel(channel);
+        }
 
         String appName = getString(getApplicationInfo().labelRes);
         int icon = getApplicationInfo().icon;
