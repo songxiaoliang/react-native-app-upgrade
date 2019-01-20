@@ -38,13 +38,13 @@ public class DownloadService extends IntentService {
     protected void onHandleIntent(Intent intent) {
 
         mNotifyManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-        mBuilder = new Builder(this);
+        
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             mBuilder = new Builder(this, "downLoadChannelId");
-        }
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             NotificationChannel channel = new NotificationChannel("downLoadChannelId", "downLoadChannel", NotificationManager.IMPORTANCE_HIGH);
             manager.createNotificationChannel(channel);
+        } else {
+            mBuilder = new Builder(this);
         }
 
         String appName = getString(getApplicationInfo().labelRes);
