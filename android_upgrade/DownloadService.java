@@ -42,7 +42,7 @@ public class DownloadService extends IntentService {
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             mBuilder = new Builder(this, "downLoadChannelId");
             NotificationChannel channel = new NotificationChannel("downLoadChannelId", "downLoadChannel", NotificationManager.IMPORTANCE_HIGH);
-            manager.createNotificationChannel(channel);
+            mNotifyManager.createNotificationChannel(channel);
         } else {
             mBuilder = new Builder(this);
         }
