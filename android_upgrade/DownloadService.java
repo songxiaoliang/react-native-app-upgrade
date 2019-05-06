@@ -128,9 +128,9 @@ public class DownloadService extends IntentService {
     private void installAPk(File apkFile) {
         Intent intent = new Intent();
         intent.setAction(Intent.ACTION_VIEW);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+            intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
             String authority = getPackageName() + ".updateFileProvider";
             Uri apkUri = FileProvider.getUriForFile(this, authority, apkFile);
             intent.setDataAndType(apkUri, "application/vnd.android.package-archive");
