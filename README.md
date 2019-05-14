@@ -122,7 +122,24 @@ android {
 
 ```
 
-8.全局搜索com.cloudbusiness将其替换为自己的包名，例如：com.react
+8. 编译如果出现：Suggestion: add 'tools:replce="android:authorities"' to <provider> element 错误，则修改如下代码：
+```xml
+    <manifest 
+      xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:tools="http://schemas.android.com/tools" // 添加该行
+      package="com.laso.lasogene"
+    >
+    
+        <provider
+            tools:replace="android:authorities" // 添加该行
+            ...
+           >
+    </provider>
+    
+    </manifest>
+```
+
+9.全局搜索com.cloudbusiness将其替换为自己的包名，例如：com.react
 
 【 iOS 平台 】
 
