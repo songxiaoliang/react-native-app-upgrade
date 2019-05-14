@@ -1,4 +1,4 @@
-package com.cloudbusiness.upgrade;
+package 改成自己的包名;
 
 import com.facebook.react.ReactPackage;
 import com.facebook.react.bridge.JavaScriptModule;
