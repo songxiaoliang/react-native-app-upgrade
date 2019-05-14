@@ -1,4 +1,4 @@
-package com.cloudbusiness.upgrade;
+package 改成自己的包名;
 
 class Constants {
 
