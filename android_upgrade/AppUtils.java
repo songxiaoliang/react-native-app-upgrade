@@ -1,4 +1,4 @@
-package 改成自己的包名;
+package 改成自己的包名.android_upgrade;
 
 import android.content.Context;
 import android.content.pm.PackageManager;
