@@ -1,4 +1,4 @@
-package com.d3o.android_upgrade;
+package 改成自己的包名.android_upgrade;
 
 import android.content.Context;
 
