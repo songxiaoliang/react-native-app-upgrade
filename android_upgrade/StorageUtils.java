@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *******************************************************************************/
-package com.cloudbusiness.upgrade;
+package 改成自己的包名.android_upgrade;
 
 import android.content.Context;
 import android.content.pm.PackageManager;
