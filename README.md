@@ -142,7 +142,7 @@ android {
     </manifest>
 ```
 
-9.全局搜索com.cloudbusiness将其替换为自己的包名，例如：com.react
+9.将所有源文件中最顶部 【改成自己的包名】.android_upgrade;将【改成自己的包名】替换为自己的包名。例如：com.react
 
 【 iOS 平台 】
 
