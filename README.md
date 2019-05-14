@@ -134,7 +134,10 @@ android {
             tools:replace="android:authorities" // 添加该行
             ...
            >
-    </provider>
+             <meta-data
+                tools:replace="android:resource" // 添加该行
+             />
+        </provider>
     
     </manifest>
 ```
