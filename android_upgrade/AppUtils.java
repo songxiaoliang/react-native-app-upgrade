@@ -1,4 +1,4 @@
-package com.cloudbusiness.upgrade;
+package 改成自己的包名;
 
 import android.content.Context;
 import android.content.pm.PackageManager;
