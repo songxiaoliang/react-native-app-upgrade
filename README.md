@@ -96,33 +96,8 @@ android {
     import 项目工程包名.UpgradePackage;
     new UpgradePackage()
 ```
-7.如果项目中使用到了react-native-image-crop-picker，则需要共用同一个FileProvider,修改如下：
-找到/node_modules/react-native-image-crop-picker/android/src/main/java/com.reactnative/ivpusic/imagepicker/PickerModule.java
-```java
 
-（1）添加如下代码：
-    private String fileProviderAuthorities = "provider";
-
-（2）添加如下方法：
-    @ReactMethod
-    public void setFileProviderAuthorities(String fileProviderAuthorities) {
-      this.fileProviderAuthorities = fileProviderAuthorities;
-    }
-
-(3) 修改303行代码，替换成如下方法：
-    mCameraCaptureURI = FileProvider.getUriForFile(activity,
-      activity.getApplicationContext().getPackageName() + "." + this.fileProviderAuthorities,
-      imageFile);
-  
-(4)在使用前，先调用setFileProviderAuthorities方法即可。
-    if(Device.Android) {
-      ImagePicker.setFileProviderAuthorities('updateFileProvider');
-    }
-    ImagePicker.openPicker({...})
-
-```
-
-8. 编译如果出现：Suggestion: add 'tools:replce="android:authorities"' to <provider> element 错误，则修改如下代码：
+7. 编译如果出现：Suggestion: add 'tools:replce="android:authorities"' to <provider> element 错误，则修改如下代码：
 ```xml
     <manifest 
       xmlns:android="http://schemas.android.com/apk/res/android"
@@ -142,7 +117,7 @@ android {
     </manifest>
 ```
 
-9.将所有源文件中最顶部 【改成自己的包名】.android_upgrade;将【改成自己的包名】替换为自己的包名。例如：com.react
+8.将所有源文件中最顶部 【改成自己的包名】.android_upgrade;将【改成自己的包名】替换为自己的包名。例如：com.react
 
 【 iOS 平台 】
 
