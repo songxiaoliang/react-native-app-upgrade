@@ -50,7 +50,7 @@
       
         // 添加fileProvider配置代码
         <provider
-            android:name="android.support.v4.content.FileProvider"
+            android:name=".android_upgrade.FileProviderAdapter"
             android:authorities="${applicationId}.updateFileProvider"
             android:exported="false"
             android:grantUriPermissions="true">
@@ -96,28 +96,7 @@ android {
     import 项目工程包名.UpgradePackage;
     new UpgradePackage()
 ```
-
-7. 编译如果出现：Suggestion: add 'tools:replce="android:authorities"' to <provider> element 错误，则修改如下代码：
-```xml
-    <manifest 
-      xmlns:android="http://schemas.android.com/apk/res/android"
-      xmlns:tools="http://schemas.android.com/tools" // 添加该行
-      package="com.laso.lasogene"
-    >
-    
-        <provider
-            tools:replace="android:authorities" // 添加该行
-            ...
-           >
-             <meta-data
-                tools:replace="android:resource" // 添加该行
-             />
-        </provider>
-    
-    </manifest>
-```
-
-8.将所有源文件中最顶部 【改成自己的包名】.android_upgrade;将【改成自己的包名】替换为自己的包名。例如：com.react
+7.将所有源文件中最顶部 【改成自己的包名】.android_upgrade;将【改成自己的包名】替换为自己的包名。例如：com.react
 
 【 iOS 平台 】
 
