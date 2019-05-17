@@ -1,5 +1,6 @@
 package 改成自己的包名.android_upgrade;
 
+import 改成自己的包名.R;
 import android.app.IntentService;
 import android.app.NotificationManager;
 import android.app.NotificationChannel;
@@ -11,8 +12,6 @@ import android.support.v4.app.NotificationCompat.Builder;
 import android.support.v4.content.FileProvider;
 import android.util.Log;
 import android.os.Build;
-import com.cloudbusiness.R;
-
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
