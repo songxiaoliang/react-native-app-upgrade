@@ -67,12 +67,12 @@
             // 省略其他代码... 
     </application>
 ```
-4.打开android/app/build.gradle文件，修改 compileSdkVersion 26 buildToolsVersion "26.0.3"，版本指定为26以上即可。如下：
+4.打开android/app/build.gradle文件，修改如下：
 ```Java
 android {
 
-    compileSdkVersion 26
-    buildToolsVersion "26.0.3"
+    compileSdkVersion 28
+    buildToolsVersion "28.0.3"
 
     defaultConfig {
       ...
