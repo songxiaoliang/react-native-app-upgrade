@@ -27,20 +27,32 @@ iOS
 打开Xcode, 将 ios_upgrade 导入到项目目录。
 
 
-
 ```javascript
-  import { upgrade, openAPPStore, addDownLoadListener, versionName, versionCode } from 'react-native-app-upgrade';
+  import { 
+    upgrade,
+    versionName,
+    versionCode,
+    openAPPStore,
+    checkIOSUpdate,
+    addDownLoadListener,
+  } from 'react-native-app-upgrade';
   
   //可通过RN.versionName获取apk版本号和远程版本号进行比较
   if(Android) {
     if(res.versionCode > versionCode) {
       upgrade(res.apkUrl);
     }
+  } else {
+    const IOSUpdateInfo = await checkIOSUpdate(appid, 1.0.0);
+    console.log(
+      IOSUpdateInfo.code,
+      IOSUpdateInfo.msg,
+      IOSUpdateInfo.version,
+    )
   }
 ```
 
 如果需要接收下载进度，可通过如下方式：
-
 ```javascript
-   
+   addDownLoadListener((progress) => {});
 ```
