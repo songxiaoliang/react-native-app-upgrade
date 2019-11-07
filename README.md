@@ -13,7 +13,7 @@
 #### iOS
 ```xml
 （1）版本检测
-（2）自动跳转 App Store
+（2）自动跳转App Store
 ```
 
 【 iOS 平台 】
