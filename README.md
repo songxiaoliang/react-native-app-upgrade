@@ -2,6 +2,7 @@
 
 ### React Native App 版本升级封装库，兼容Android 4 - 9 版本
 
+### 一、功能
 #### Android
 ```xml
 （1）版本检测
@@ -16,29 +17,20 @@
 （2）自动跳转App Store
 ```
 
-【 iOS 平台 】
-打开Xcode, 将【 ios_upgrade 】导入到项目目录。
+### 二、使用
 
-二、使用
-
-首先导入NativeModules模块：
-
-```Java
-import {
-  NativeModules
-} from 'react-native';
+```xml
+  yarn add react-native-app-upgrade
 ```
 
-【 Android 】
+【iOS】
+打开Xcode, 将【 ios_upgrade 】导入到项目目录。
 
 ```Java
-// 可通过NativeModules.upgrade.versionName获取apk版本号和远程版本号进行比较
-Http.get(Api.api_checkupdate, null, false, (result)=>{  
-    if(result.ok) {  
-        // 下载最新Apk  
-        NativeModules.upgrade.upgrade(this.state.apkUrl);
-    }  
-});  
+import RNUpgrade from 'react-native-app-upgrade';
+
+// 可通过RN.versionName获取apk版本号和远程版本号进行比较
+RNUpgrade.upgrade(apkUrl);
 ```
 
 如果需要接收下载进度，可通过如下方式：
