@@ -21,6 +21,9 @@
 
 ```xml
   yarn add react-native-app-upgrade
+
+  // 低于0.6+版本
+  react-native link react-native-app-upgrade
 ```
 
 iOS
@@ -28,6 +31,7 @@ iOS
 
 
 ```javascript
+
   import { 
     upgrade,
     versionName,
@@ -43,12 +47,10 @@ iOS
       upgrade(res.apkUrl);
     }
   } else {
-    const IOSUpdateInfo = await checkIOSUpdate(appid, 1.0.0);
-    console.log(
-      IOSUpdateInfo.code,
-      IOSUpdateInfo.msg,
-      IOSUpdateInfo.version,
-    )
+    const IOSUpdateInfo = await checkIOSUpdate(appid, 1.0.1);
+    IOSUpdateInfo.code // -1: 未查询到该App 或 网络错误 1: 有最新版本 0: 没有新版本
+    IOSUpdateInfo.msg
+    IOSUpdateInfo.version
   }
 ```
 
