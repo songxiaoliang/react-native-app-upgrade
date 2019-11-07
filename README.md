@@ -1,6 +1,5 @@
-<img src='http://oleeed73x.bkt.clouddn.com/1522417405_153693.png' />
 
-### React Native App 版本升级封装库，兼容Android 4 - 9 版本
+React Native App 版本升级封装库，兼容Android 4 - 9 版本
 
 ### 一、功能
 #### Android
