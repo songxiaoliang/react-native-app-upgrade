@@ -13,6 +13,17 @@ const versionCode = RNUpgrade.versionCode;
 export const versionName;
 export const versionCode;
 
+function handlerVersionString(version) {
+    let versions = version.split('.');
+    let number = 0;
+    if (versions.length === 3) {
+      number = parseInt(versions[0]) * 10000 + parseInt(versions[1]) * 100 + parseInt(versions[2])
+    } else {
+      number = parseInt(versions[0]) * 10000 + parseInt(versions[1]) * 100
+    }
+    return number;
+}
+
 /**
  * IOS检测更新
  * @param appId   appstore的应用id
