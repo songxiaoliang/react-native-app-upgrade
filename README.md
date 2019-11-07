@@ -19,10 +19,10 @@ React Native App 版本升级封装库，兼容Android 4 - 9 版本
 ### 二、使用
 
 ```xml
-  yarn add react-native-app-upgrade
+  yarn add rn-app-upgrade
 
   // 低于0.6+版本
-  react-native link react-native-app-upgrade
+  react-native link rn-app-upgrade
 ```
 
 iOS
@@ -38,7 +38,7 @@ iOS
     openAPPStore,
     checkIOSUpdate,
     addDownLoadListener,
-  } from 'react-native-app-upgrade';
+  } from 'rn-app-upgrade';
   
   //可通过RN.versionName获取apk版本号和远程版本号进行比较
   if(Android) {
