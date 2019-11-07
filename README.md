@@ -1,6 +1,5 @@
-<img src='http://oleeed73x.bkt.clouddn.com/1522417405_153693.png' />
 
-### React Native App 版本升级封装库，兼容Android 4 - 9 版本
+React Native App 版本升级封装库，兼容Android 4 - 9 版本
 
 ### 一、功能
 #### Android
@@ -21,23 +20,40 @@
 
 ```xml
   yarn add react-native-app-upgrade
+
+  // 低于0.6+版本
+  react-native link react-native-app-upgrade
 ```
 
-【iOS】
-打开Xcode, 将【 ios_upgrade 】导入到项目目录。
-
+iOS
+打开Xcode, 将 ios_upgrade 导入到项目目录。
 
 
 ```javascript
-import { upgrade, openAPPStore, addDownLoadListener } from 'react-native-app-upgrade';
 
-
-// 可通过RN.versionName获取apk版本号和远程版本号进行比较
-upgrade(apkUrl);
+  import { 
+    upgrade,
+    versionName,
+    versionCode,
+    openAPPStore,
+    checkIOSUpdate,
+    addDownLoadListener,
+  } from 'react-native-app-upgrade';
+  
+  //可通过RN.versionName获取apk版本号和远程版本号进行比较
+  if(Android) {
+    if(res.versionCode > versionCode) {
+      upgrade(res.apkUrl);
+    }
+  } else {
+    const IOSUpdateInfo = await checkIOSUpdate(appid, 当前版本号);
+    IOSUpdateInfo.code // -1: 未查询到该App 或 网络错误 1: 有最新版本 0: 没有新版本
+    IOSUpdateInfo.msg
+    IOSUpdateInfo.version
+  }
 ```
 
 如果需要接收下载进度，可通过如下方式：
-
 ```javascript
-   
+   addDownLoadListener((progress) => {});
 ```
