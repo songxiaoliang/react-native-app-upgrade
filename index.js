@@ -7,6 +7,11 @@ import {
 
 const RNUpgrade = NativeModules.upgrade;
 const ANDROID_PLATFORM = Platform.OS === 'android';
+const versionName = RNUpgrade.versionName;
+const versionCode = RNUpgrade.versionCode;
+
+export const versionName;
+export const versionCode;
 
 /**
  * IOS检测更新
