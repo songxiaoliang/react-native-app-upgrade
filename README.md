@@ -23,17 +23,20 @@
   yarn add react-native-app-upgrade
 ```
 
-【iOS】
-打开Xcode, 将【 ios_upgrade 】导入到项目目录。
+iOS
+打开Xcode, 将 ios_upgrade 导入到项目目录。
 
 
 
 ```javascript
-import { upgrade, openAPPStore, addDownLoadListener } from 'react-native-app-upgrade';
-
-
-// 可通过RN.versionName获取apk版本号和远程版本号进行比较
-upgrade(apkUrl);
+  import { upgrade, openAPPStore, addDownLoadListener, versionName, versionCode } from 'react-native-app-upgrade';
+  
+  //可通过RN.versionName获取apk版本号和远程版本号进行比较
+  if(Android) {
+    if(res.versionCode > versionCode) {
+      upgrade(res.apkUrl);
+    }
+  }
 ```
 
 如果需要接收下载进度，可通过如下方式：
