@@ -29,10 +29,11 @@
 
 
 ```javascript
-import RNUpgrade from 'react-native-app-upgrade';
+import { upgrade, openAPPStore, addDownLoadListener } from 'react-native-app-upgrade';
+
 
 // 可通过RN.versionName获取apk版本号和远程版本号进行比较
-RNUpgrade.upgrade(apkUrl);
+upgrade(apkUrl);
 ```
 
 如果需要接收下载进度，可通过如下方式：
