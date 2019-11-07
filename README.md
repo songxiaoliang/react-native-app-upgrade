@@ -47,7 +47,7 @@ iOS
       upgrade(res.apkUrl);
     }
   } else {
-    const IOSUpdateInfo = await checkIOSUpdate(appid, 1.1.1);
+    const IOSUpdateInfo = await checkIOSUpdate(appid, 当前版本号);
     IOSUpdateInfo.code // -1: 未查询到该App 或 网络错误 1: 有最新版本 0: 没有新版本
     IOSUpdateInfo.msg
     IOSUpdateInfo.version
