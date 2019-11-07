@@ -26,33 +26,18 @@
 【iOS】
 打开Xcode, 将【 ios_upgrade 】导入到项目目录。
 
-```Java
-import RNUpgrade from 'react-native-app-upgrade';
+
+
+```javascript
+import { upgrade, openAPPStore, addDownLoadListener } from 'react-native-app-upgrade';
+
 
 // 可通过RN.versionName获取apk版本号和远程版本号进行比较
-RNUpgrade.upgrade(apkUrl);
+upgrade(apkUrl);
 ```
 
 如果需要接收下载进度，可通过如下方式：
 
-```Java
-    componentWillMount(){
-        DeviceEventEmitter.addListener('LOAD_PROGRESS',(msg)=>{
-            let title = "当前下载进度：" + msg 
-            ToastAndroid.show(title, ToastAndroid.SHORT);  
-        }); 
-    } 
- ```
- 
-【 iOS 】
-
-```Java
-NativeModules.upgrade.upgrade('Apple ID',(msg) =>{  
-    if('YES' == msg) {  
-       //跳转到APP Stroe  
-       NativeModules.upgrade.openAPPStore('Apple ID');  
-    } else {  
-        Toast.show('当前为最新版本');  
-    }  
-})  
+```javascript
+   
 ```
