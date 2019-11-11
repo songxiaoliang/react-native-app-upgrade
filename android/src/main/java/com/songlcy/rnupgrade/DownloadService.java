@@ -1,6 +1,6 @@
 package com.songlcy.rnupgrade;
 
-import 改成自己的包名.R;
+import com.songlcy.rnupgrade.R;
 import android.app.IntentService;
 import android.app.NotificationManager;
 import android.app.NotificationChannel;
@@ -8,8 +8,8 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
-import androidx.core.app.NotificationCompat.Builder;
-import androidx.core.content.FileProvider;
+import android.support.v4.app.NotificationCompat.Builder;
+import android.support.v4.content.FileProvider;
 import android.util.Log;
 import android.os.Build;
 import java.io.File;
