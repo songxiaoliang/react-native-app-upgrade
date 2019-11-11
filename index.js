@@ -65,7 +65,7 @@ export async function checkUpdate(appId, version) {
  */
 export const upgrade = (apkUrl) => {
     if (ANDROID_PLATFORM) {
-        RNUpgrade.upgrade(apkUrl)
+        RNUpgrade.upgrade(apkUrl);
     }
 };
 /**
@@ -74,7 +74,7 @@ export const upgrade = (apkUrl) => {
  */
 export const openAPPStore = (appid) => {
     if (!ANDROID_PLATFORM) {
-        Linking.openURL(`https://itunes.apple.com/us/app/id${appid}?ls=1&mt=8`)
+        RNUpgrade.openAPPStore(appid);
     }
 };
 
@@ -84,6 +84,6 @@ export const openAPPStore = (appid) => {
  */
 export const addDownListener = (callBack) => {
     if (ANDROID_PLATFORM) {
-        return DeviceEventEmitter.addListener('LOAD_PROGRESS', callBack)
+        return DeviceEventEmitter.addListener('LOAD_PROGRESS', callBack);
     }
 };
