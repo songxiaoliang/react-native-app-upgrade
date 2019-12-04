@@ -1,23 +1,27 @@
 package com.songlcy.rnupgrade;
 
-import com.songlcy.rnupgrade.R;
 import android.app.IntentService;
-import android.app.NotificationManager;
+import android.app.Notification;
 import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
-import android.support.v4.app.NotificationCompat.Builder;
-import android.support.v4.content.FileProvider;
-import android.util.Log;
 import android.os.Build;
+import android.util.Log;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+
+import androidx.core.content.FileProvider;
+
+//import android.support.v4.app.NotificationCompat.Builder;
+//import android.support.v4.content.FileProvider;
 
 public class DownloadService extends IntentService {
 
@@ -27,7 +31,7 @@ public class DownloadService extends IntentService {
     private static final int NOTIFICATION_ID = 0;
 
     private NotificationManager mNotifyManager;
-    private Builder mBuilder;
+    private Notification.Builder mBuilder;
 
     public DownloadService() {
         super("DownloadService");
@@ -39,11 +43,11 @@ public class DownloadService extends IntentService {
         mNotifyManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            mBuilder = new Builder(this, "downLoadChannelId");
+            mBuilder = new Notification.Builder(this, "downLoadChannelId");
             NotificationChannel channel = new NotificationChannel("downLoadChannelId", "downLoadChannel", NotificationManager.IMPORTANCE_LOW);
             mNotifyManager.createNotificationChannel(channel);
         } else {
-            mBuilder = new Builder(this);
+            mBuilder = new Notification.Builder(this);
         }
 
         String appName = getString(getApplicationInfo().labelRes);
