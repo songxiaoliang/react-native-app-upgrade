@@ -82,7 +82,7 @@ export const openAPPStore = (appid) => {
  * android apk下载回调
  * @param callBack
  */
-export const addDownListener = (callBack) => {
+export const addDownLoadListener = (callBack) => {
     if (ANDROID_PLATFORM) {
         return DeviceEventEmitter.addListener('LOAD_PROGRESS', callBack);
     }
