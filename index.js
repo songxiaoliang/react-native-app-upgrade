@@ -28,7 +28,7 @@ export async function checkUpdate(appId, version) {
     if (ANDROID_PLATFORM) {
         try {
             const response = await fetch(
-                `https://itunes.apple.com/cn/lookup?id=${appId}`
+                `https://itunes.apple.com/cn/lookup?id=${appId}&t=${Date.now()}`
             );
             const res = await response.json();
             if (res.results.length < 1) {
