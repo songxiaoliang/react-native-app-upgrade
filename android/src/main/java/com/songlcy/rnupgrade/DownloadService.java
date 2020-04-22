@@ -47,17 +47,21 @@ public class DownloadService extends IntentService {
             mBuilder = new Builder(this);
         }
         
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-            Intent fullScreenIntent = new Intent(this, MainActivity.class);
-            PendingIntent fullScreenPendingIntent = PendingIntent.getActivity(this, 0,
-                    fullScreenIntent, PendingIntent.FLAG_UPDATE_CURRENT);
-            mBuilder.setFullScreenIntent(fullScreenPendingIntent, true);
-        }
-
         String appName = getString(getApplicationInfo().labelRes);
         int icon = getApplicationInfo().icon;
 
         mBuilder.setContentTitle(appName).setSmallIcon(icon);
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            Intent fullScreenIntent = new Intent(this, MainActivity.class);
+            PendingIntent fullScreenPendingIntent = PendingIntent.getActivity(this, 0,
+                    fullScreenIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+            
+            //以下为关键的3行
+            mBuilder.setPriority(NotificationCompat.PRIORITY_HIGH)
+            mBuilder.setCategory(NotificationCompat.CATEGORY_CALL)
+            mBuilder.setFullScreenIntent(fullScreenPendingIntent, true);
+        }
+
         String urlStr = intent.getStringExtra(Constants.APK_DOWNLOAD_URL);
         InputStream in = null;
         FileOutputStream out = null;
