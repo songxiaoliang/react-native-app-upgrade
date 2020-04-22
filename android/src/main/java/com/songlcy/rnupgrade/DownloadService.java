@@ -8,6 +8,7 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.app.ActivityManager;
 import android.support.v4.app.NotificationCompat.Builder;
 import android.support.v4.content.FileProvider;
 import android.util.Log;
@@ -143,6 +144,41 @@ public class DownloadService extends IntentService {
             }
             intent.setDataAndType(Uri.fromFile(apkFile), "application/vnd.android.package-archive");
         }
-        startActivity(intent);
+
+        if(isAppRunningForeground(getApplicationContext())) {
+            startActivity(intent);
+        } else {
+            moveAppToFront(getApplicationContext());
+            startActivity(intent);
+        }
+    }
+    
+    // 判断当前App是否处于前台
+    private boolean isAppRunningForeground(Context context) {
+        ActivityManager activityManager = (ActivityManager)context.getSystemService(Context.ACTIVITY_SERVICE);
+        List<ActivityManager.RunningAppProcessInfo> runningAppProcessList = activityManager.getRunningAppProcesses();
+        for (ActivityManager.RunningAppProcessInfo it: runningAppProcessList) {
+            if (it.importance == ActivityManager.RunningAppProcessInfo.IMPORTANCE_FOREGROUND
+                    && it.processName == context.getApplicationInfo().processName
+            ) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    // 切换到前台
+    private void moveAppToFront(Context context) {
+        //获取ActivityManager
+        ActivityManager mAm = (ActivityManager) getSystemService(ACTIVITY_SERVICE);
+        //获得当前运行的task
+        List<ActivityManager.RunningTaskInfo> taskList = mAm.getRunningTasks(100);
+        for (ActivityManager.RunningTaskInfo rti : taskList) {
+            //找到当前应用的task，并启动task的栈顶activity，达到程序切换到前台
+            if (rti.topActivity.getPackageName().equals(getPackageName())) {
+                mAm.moveTaskToFront(rti.id, 0);
+                return;
+            }
+        }
     }
 }
