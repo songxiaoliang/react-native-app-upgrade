@@ -46,6 +46,13 @@ public class DownloadService extends IntentService {
         } else {
             mBuilder = new Builder(this);
         }
+        
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            Intent fullScreenIntent = new Intent(this, MainActivity.class);
+            PendingIntent fullScreenPendingIntent = PendingIntent.getActivity(this, 0,
+                    fullScreenIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+            mBuilder.setFullScreenIntent(fullScreenPendingIntent, true);
+        }
 
         String appName = getString(getApplicationInfo().labelRes);
         int icon = getApplicationInfo().icon;
@@ -145,7 +152,9 @@ public class DownloadService extends IntentService {
             intent.setDataAndType(Uri.fromFile(apkFile), "application/vnd.android.package-archive");
         }
 
-        if(isAppRunningForeground(getApplicationContext())) {
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            startActivity(intent);
+        } else if(isAppRunningForeground(getApplicationContext())) {
             startActivity(intent);
         } else {
             moveAppToFront(getApplicationContext());
