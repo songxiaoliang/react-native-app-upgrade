@@ -1,5 +1,7 @@
 
-React Native App 版本升级封装库，兼容Android 4 - 9 版本
+React Native App 版本升级封装库，兼容Android 4 - 10 版本
+
+注意：由于 Android Q(10) 版本中，系统对于后台拉起Activity做了非常严格的限制，在下载过程中， 如果回到Home桌面， 当下载完成时可能无法拉起安装Apk的页面，所以为了适配此场景，需要当前App优先申请： 悬浮窗权限, 即 SYSTEM_ALERT_WINDOW
 
 ### 一、功能
 #### Android
