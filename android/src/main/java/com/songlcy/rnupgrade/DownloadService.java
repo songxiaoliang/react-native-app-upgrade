@@ -145,7 +145,12 @@ public class DownloadService extends IntentService {
             intent.setDataAndType(Uri.fromFile(apkFile), "application/vnd.android.package-archive");
         }
 
-        startActivity(intent);
+        if(isAppRunningForeground(getApplicationContext())) {
+            startActivity(intent);
+        } else {
+            moveAppToFront(getApplicationContext());
+            startActivity(intent);
+        }
     }
     
     // 判断当前App是否处于前台
