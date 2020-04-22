@@ -49,18 +49,7 @@ public class DownloadService extends IntentService {
         
         String appName = getString(getApplicationInfo().labelRes);
         int icon = getApplicationInfo().icon;
-
         mBuilder.setContentTitle(appName).setSmallIcon(icon);
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-            Intent fullScreenIntent = new Intent(this, MainActivity.class);
-            PendingIntent fullScreenPendingIntent = PendingIntent.getActivity(this, 0,
-                    fullScreenIntent, PendingIntent.FLAG_UPDATE_CURRENT);
-            
-            //以下为关键的3行
-            mBuilder.setPriority(NotificationCompat.PRIORITY_HIGH)
-            mBuilder.setCategory(NotificationCompat.CATEGORY_CALL)
-            mBuilder.setFullScreenIntent(fullScreenPendingIntent, true);
-        }
 
         String urlStr = intent.getStringExtra(Constants.APK_DOWNLOAD_URL);
         InputStream in = null;
@@ -156,14 +145,7 @@ public class DownloadService extends IntentService {
             intent.setDataAndType(Uri.fromFile(apkFile), "application/vnd.android.package-archive");
         }
 
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-            startActivity(intent);
-        } else if(isAppRunningForeground(getApplicationContext())) {
-            startActivity(intent);
-        } else {
-            moveAppToFront(getApplicationContext());
-            startActivity(intent);
-        }
+        startActivity(intent);
     }
     
     // 判断当前App是否处于前台
