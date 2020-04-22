@@ -145,21 +145,21 @@ public class DownloadService extends IntentService {
             intent.setDataAndType(Uri.fromFile(apkFile), "application/vnd.android.package-archive");
         }
 
-        if(isAppRunningForeground(getApplicationContext())) {
+        if(isAppRunningForeground()) {
             startActivity(intent);
         } else {
-            moveAppToFront(getApplicationContext());
+            moveAppToFront();
             startActivity(intent);
         }
     }
     
     // 判断当前App是否处于前台
-    private boolean isAppRunningForeground(Context context) {
-        ActivityManager activityManager = (ActivityManager)context.getSystemService(Context.ACTIVITY_SERVICE);
+    private boolean isAppRunningForeground() {
+        ActivityManager activityManager = (ActivityManager)getSystemService(Context.ACTIVITY_SERVICE);
         List<ActivityManager.RunningAppProcessInfo> runningAppProcessList = activityManager.getRunningAppProcesses();
         for (ActivityManager.RunningAppProcessInfo it: runningAppProcessList) {
             if (it.importance == ActivityManager.RunningAppProcessInfo.IMPORTANCE_FOREGROUND
-                    && it.processName == context.getApplicationInfo().processName
+                    && it.processName == getApplicationInfo().processName
             ) {
                 return true;
             }
@@ -168,7 +168,7 @@ public class DownloadService extends IntentService {
     }
 
     // 切换到前台
-    private void moveAppToFront(Context context) {
+    private void moveAppToFront() {
         //获取ActivityManager
         ActivityManager mAm = (ActivityManager) getSystemService(ACTIVITY_SERVICE);
         //获得当前运行的task
