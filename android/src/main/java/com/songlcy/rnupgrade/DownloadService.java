@@ -92,13 +92,13 @@ public class DownloadService extends IntentService {
                 }
                 oldProgress = progress;
             }
-            
-            sendDownLoadSuccessNotification(appName, icon);
-            
-            // 下载完成
-            installAPk(apkFile);
             mNotifyManager.cancel(NOTIFICATION_ID);
-
+            if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+                sendDownLoadSuccessNotification(apkFile, appName, icon);
+            } else {
+                // 下载完成
+                installAPk(apkFile);
+            }
         } catch (Exception e) {
             Log.e(TAG, "download apk file error");
         } finally {
@@ -140,7 +140,7 @@ public class DownloadService extends IntentService {
             Uri apkUri = FileProvider.getUriForFile(this, authority, apkFile);
             intent.setDataAndType(apkUri, "application/vnd.android.package-archive");
         } else {
-            //如果没有设置SDCard写权限，或者没有sdcard,apk文件保存在内存中，需要授予权限才能安装
+            // 如果没有设置SDCard写权限，或者没有sdcard,apk文件保存在内存中，需要授予权限才能安装
             try {
                 String[] command = {"chmod", "777", apkFile.toString()};
                 ProcessBuilder builder = new ProcessBuilder(command);
@@ -150,7 +150,7 @@ public class DownloadService extends IntentService {
             intent.setDataAndType(Uri.fromFile(apkFile), "application/vnd.android.package-archive");
         }
 
-        if(isAppRunningForeground()) {
+        if (isAppRunningForeground()) {
             startActivity(intent);
         } else {
             moveAppToFront();
@@ -190,7 +190,7 @@ public class DownloadService extends IntentService {
     /**
      * 下载成功， 发送 Notification
      */
-    private void sendDownLoadSuccessNotification(String appName, int icon) {
+    private void sendDownLoadSuccessNotification(File apkFile, String appName, int icon) {
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             mDownLoadSuccessBuilder = new Builder(this, "downLoadSuccessChannelId");
             NotificationChannel channel = new NotificationChannel("downLoadSuccessChannelId", "downLoadSuccessChannel", NotificationManager.IMPORTANCE_LOW);
@@ -200,9 +200,8 @@ public class DownloadService extends IntentService {
         }
 
         Intent intent = new Intent(this, ApkDonLoadSuccessReceiver.class);
-        intent.putExtra("notificationId", DOWNLOAD_SUCCESS_NOTIFICATION_ID);
+        intent.putExtra("apkFile", apkFile);
         PendingIntent pendingIntent = PendingIntent.getBroadcast(this, DOWNLOAD_SUCCESS_NOTIFICATION_ID, intent, PendingIntent.FLAG_UPDATE_CURRENT);
-
         mDownLoadSuccessBuilder
                 .setContentTitle(appName)
                 .setSmallIcon(icon)
@@ -210,6 +209,5 @@ public class DownloadService extends IntentService {
                 .setAutoCancel(true);
         mDownLoadSuccessBuilder.setContentIntent(pendingIntent);
         mNotifyManager.notify(DOWNLOAD_SUCCESS_NOTIFICATION_ID, mDownLoadSuccessBuilder.build());
-
     }
 }

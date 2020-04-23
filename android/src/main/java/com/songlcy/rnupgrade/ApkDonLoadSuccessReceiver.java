@@ -22,9 +22,9 @@ public class ApkDonLoadSuccessReceiver extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
-//        NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
-//        notificationManager.cancel(intent.getIntExtra("notificationId", -1));
+        File apkFile = (File)intent.getSerializableExtra("apkFile");
         moveAppToFront(context);
+        installAPk(apkFile, context);
     }
 
     private void moveAppToFront(Context context) {
@@ -41,4 +41,25 @@ public class ApkDonLoadSuccessReceiver extends BroadcastReceiver {
         }
     }
 
+    private void installAPk(File apkFile, Context context) {
+        Intent intent = new Intent();
+        intent.setAction(Intent.ACTION_VIEW);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+            String authority = context.getPackageName() + ".updateFileProvider";
+            Uri apkUri = FileProvider.getUriForFile(context, authority, apkFile);
+            intent.setDataAndType(apkUri, "application/vnd.android.package-archive");
+        } else {
+            //如果没有设置SDCard写权限，或者没有sdcard,apk文件保存在内存中，需要授予权限才能安装
+            try {
+                String[] command = {"chmod", "777", apkFile.toString()};
+                ProcessBuilder builder = new ProcessBuilder(command);
+                builder.start();
+            } catch (IOException ignored) {
+            }
+            intent.setDataAndType(Uri.fromFile(apkFile), "application/vnd.android.package-archive");
+        }
+        context.startActivity(intent);
+    }
 }
