@@ -92,13 +92,11 @@ public class DownloadService extends IntentService {
                 }
                 oldProgress = progress;
             }
+
+            // 下载完成
+            installAPk(apkFile);
             mNotifyManager.cancel(NOTIFICATION_ID);
-            if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-                sendDownLoadSuccessNotification(apkFile, appName, icon);
-            } else {
-                // 下载完成
-                installAPk(apkFile);
-            }
+
         } catch (Exception e) {
             Log.e(TAG, "download apk file error");
         } finally {
@@ -152,6 +150,8 @@ public class DownloadService extends IntentService {
 
         if (isAppRunningForeground()) {
             startActivity(intent);
+        } else if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            sendDownLoadSuccessNotification(apkFile, appName, icon);
         } else {
             moveAppToFront();
             startActivity(intent);
