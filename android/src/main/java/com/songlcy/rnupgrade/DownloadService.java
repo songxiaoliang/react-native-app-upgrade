@@ -94,7 +94,7 @@ public class DownloadService extends IntentService {
             }
 
             // 下载完成
-            installAPk(apkFile);
+            installAPk(apkFile, appName, icon);
             mNotifyManager.cancel(NOTIFICATION_ID);
 
         } catch (Exception e) {
@@ -128,7 +128,7 @@ public class DownloadService extends IntentService {
         mNotifyManager.notify(NOTIFICATION_ID, mBuilder.build());
     }
 
-    private void installAPk(File apkFile) {
+    private void installAPk(File apkFile, String appName, int icon) {
         Intent intent = new Intent();
         intent.setAction(Intent.ACTION_VIEW);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
