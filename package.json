@@ -1,0 +1,26 @@
+{
+  "name": "rn-app-upgrade",
+  "version": "1.1.0",
+  "description": "react native app upgrade",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/songxiaoliang/react-native-app-upgrade.git"
+  },
+  "keywords": [
+    "react-native",
+    "app",
+    "upgrade",
+    "android",
+    "ios"
+  ],
+  "author": "songlcy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/songxiaoliang/react-native-app-upgrade/issues"
+  },
+  "homepage": "https://github.com/songxiaoliang/react-native-app-upgrade#readme"
+}
