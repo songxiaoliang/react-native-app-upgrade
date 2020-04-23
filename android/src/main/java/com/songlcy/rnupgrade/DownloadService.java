@@ -26,9 +26,11 @@ public class DownloadService extends IntentService {
     private static final String TAG = "DownloadService";
 
     private static final int NOTIFICATION_ID = 0;
-
+    private static final int DOWNLOAD_SUCCESS_NOTIFICATION_ID = 1;
+    
     private NotificationManager mNotifyManager;
     private Builder mBuilder;
+    private Builder mDownLoadSuccessBuilder;
 
     public DownloadService() {
         super("DownloadService");
@@ -90,6 +92,9 @@ public class DownloadService extends IntentService {
                 }
                 oldProgress = progress;
             }
+            
+            sendDownLoadSuccessNotification(appName, icon);
+            
             // 下载完成
             installAPk(apkFile);
             mNotifyManager.cancel(NOTIFICATION_ID);
@@ -180,5 +185,31 @@ public class DownloadService extends IntentService {
                 return;
             }
         }
+    }
+    
+    /**
+     * 下载成功， 发送 Notification
+     */
+    private void sendDownLoadSuccessNotification(String appName, int icon) {
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            mDownLoadSuccessBuilder = new Builder(this, "downLoadSuccessChannelId");
+            NotificationChannel channel = new NotificationChannel("downLoadSuccessChannelId", "downLoadSuccessChannel", NotificationManager.IMPORTANCE_LOW);
+            mNotifyManager.createNotificationChannel(channel);
+        } else {
+            mDownLoadSuccessBuilder = new Builder(this);
+        }
+
+        Intent intent = new Intent(this, ApkDonLoadSuccessReceiver.class);
+        intent.putExtra("notificationId", DOWNLOAD_SUCCESS_NOTIFICATION_ID);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(this, DOWNLOAD_SUCCESS_NOTIFICATION_ID, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+        mDownLoadSuccessBuilder
+                .setContentTitle(appName)
+                .setSmallIcon(icon)
+                .setContentText("下载完成")
+                .setAutoCancel(true);
+        mDownLoadSuccessBuilder.setContentIntent(pendingIntent);
+        mNotifyManager.notify(DOWNLOAD_SUCCESS_NOTIFICATION_ID, mDownLoadSuccessBuilder.build());
+
     }
 }
