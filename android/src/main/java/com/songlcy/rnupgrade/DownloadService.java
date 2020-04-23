@@ -191,23 +191,26 @@ public class DownloadService extends IntentService {
      * 下载成功， 发送 Notification
      */
     private void sendDownLoadSuccessNotification(File apkFile, String appName, int icon) {
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            mDownLoadSuccessBuilder = new Builder(this, "downLoadSuccessChannelId");
-            NotificationChannel channel = new NotificationChannel("downLoadSuccessChannelId", "downLoadSuccessChannel", NotificationManager.IMPORTANCE_LOW);
-            mNotifyManager.createNotificationChannel(channel);
-        } else {
-            mDownLoadSuccessBuilder = new Builder(this);
-        }
+        // if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+        //     mDownLoadSuccessBuilder = new Builder(this, "downLoadSuccessChannelId");
+        //     NotificationChannel channel = new NotificationChannel("downLoadSuccessChannelId", "downLoadSuccessChannel", NotificationManager.IMPORTANCE_LOW);
+        //     mNotifyManager.createNotificationChannel(channel);
+        // } else {
+        //     mDownLoadSuccessBuilder = new Builder(this);
+        // }
 
-        Intent intent = new Intent(this, ApkDonLoadSuccessReceiver.class);
-        intent.putExtra("apkFile", apkFile);
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(this, DOWNLOAD_SUCCESS_NOTIFICATION_ID, intent, PendingIntent.FLAG_UPDATE_CURRENT);
-        mDownLoadSuccessBuilder
-                .setContentTitle(appName)
-                .setSmallIcon(icon)
-                .setContentText("下载完成")
-                .setAutoCancel(true);
-        mDownLoadSuccessBuilder.setContentIntent(pendingIntent);
-        mNotifyManager.notify(DOWNLOAD_SUCCESS_NOTIFICATION_ID, mDownLoadSuccessBuilder.build());
+        // Intent intent = new Intent(this, ApkDonLoadSuccessReceiver.class);
+        // intent.putExtra("apkFile", apkFile);
+        // PendingIntent pendingIntent = PendingIntent.getBroadcast(this, DOWNLOAD_SUCCESS_NOTIFICATION_ID, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+        // mDownLoadSuccessBuilder
+        //         .setContentTitle(appName)
+        //         .setSmallIcon(icon)
+        //         .setContentText("下载完成")
+        //         .setAutoCancel(true);
+        // mDownLoadSuccessBuilder.setContentIntent(pendingIntent);
+        // mNotifyManager.notify(DOWNLOAD_SUCCESS_NOTIFICATION_ID, mDownLoadSuccessBuilder.build());
+    
+        Intent intent1 = new Intent(this, ApkDonLoadSuccessReceiver.class);
+        sendBroadcast(intent1);
     }
 }
