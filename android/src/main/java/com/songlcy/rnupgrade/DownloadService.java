@@ -164,7 +164,7 @@ public class DownloadService extends IntentService {
         List<ActivityManager.RunningAppProcessInfo> runningAppProcessList = activityManager.getRunningAppProcesses();
         for (ActivityManager.RunningAppProcessInfo it: runningAppProcessList) {
             if (it.importance == ActivityManager.RunningAppProcessInfo.IMPORTANCE_FOREGROUND
-                    && it.processName == getApplicationInfo().processName
+                    && getApplicationInfo().processName.equals(it.processName)
             ) {
                 return true;
             }
