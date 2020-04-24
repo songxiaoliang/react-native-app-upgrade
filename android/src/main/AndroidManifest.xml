@@ -4,8 +4,15 @@
     package="com.songlcy.rnupgrade" >
 
     <uses-permission android:name="android.permission.INTERNET" />
+
     
-    <!--前后台的切换-->
+    <!--8.0安装需要的权限-->
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT" />
+    
+    <!--前后台切换-->
     <uses-permission android:name="android.permission.GET_TASKS"/>
     <uses-permission android:name="android.permission.INTERACT_ACROSS_USERS_FULL" tools:ignore="ProtectedPermissions" />
     <uses-permission android:name="android.permission.GET_TOP_ACTIVITY_INFO"  tools:ignore="ProtectedPermissions" />
