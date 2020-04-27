@@ -1,6 +1,6 @@
 package com.songlcy.rnupgrade;
 
-import com.songlcy.rnupgrade.R;
+
 import android.app.IntentService;
 import android.app.NotificationManager;
 import android.app.NotificationChannel;
@@ -12,6 +12,7 @@ import android.support.v4.app.NotificationCompat.Builder;
 import android.support.v4.content.FileProvider;
 import android.util.Log;
 import android.os.Build;
+import android.os.Handler;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -89,9 +90,16 @@ public class DownloadService extends IntentService {
                 }
                 oldProgress = progress;
             }
-            // 下载完成
-            installAPk(apkFile);
-            mNotifyManager.cancel(NOTIFICATION_ID);
+
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    // 下载完成
+                    installAPk(apkFile);
+                    mNotifyManager.cancel(NOTIFICATION_ID);
+                }
+            }, 3000);    //延时3s执行
+
 
         } catch (Exception e) {
             Log.e(TAG, "download apk file error");
