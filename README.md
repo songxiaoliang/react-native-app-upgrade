@@ -31,18 +31,25 @@ React Native App 版本升级封装库，兼容Android 4 - 10 版本、iOS所有
 
   import androidx.core.content.FileProvider
   更改为:
-  android.support.v4.content.FileProvider
+  import android.support.v4.content.FileProvider
 
 
   2. DownloadService.java
 
-  import androidx.core.app.NotificationCompat.Builder=>android.support.v4.NotificationCompat.Builder
-  import androidx.core.content.FileProvider=>android.support.v4.content.FileProvider
+  import androidx.core.app.NotificationCompat.Builder
+  更改为:
+  import android.support.v4.NotificationCompat.Builder
+  
+  import androidx.core.content.FileProvider
+  更改为:
+  import android.support.v4.content.FileProvider
 
 
   3. FileProviderAdapter.java
 
-  import androidx.core.content.FileProvider=>android.support.v4.content.FileProvider
+  import androidx.core.content.FileProvider
+  更改为:
+  import android.support.v4.content.FileProvider
 ```
 iOS
 打开Xcode, 将 ios_upgrade 导入到项目目录。
