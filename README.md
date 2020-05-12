@@ -25,7 +25,7 @@ React Native App 版本升级封装库，兼容Android 4 - 10 版本、iOS所有
   react-native link rn-app-upgrade
 ```
 #### 注意
-如果使用的RN版本低于0.6，则需要单独修改几个如下几个文件
+如果使用的RN版本低于0.6，则默认不支持androidx，则需要单独修改几个如下几个文件，使用import android support库中对应的文件
 ```java
   1. ApkDonLoadSuccessReceiver.java
 
