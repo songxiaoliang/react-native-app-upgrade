@@ -29,7 +29,9 @@ React Native App 版本升级封装库，兼容Android 4 - 10 版本、iOS所有
 ```java
   1. ApkDonLoadSuccessReceiver.java
 
-  import androidx.core.content.FileProvider 更改为: android.support.v4.content.FileProvider
+  import androidx.core.content.FileProvider
+  更改为:
+  android.support.v4.content.FileProvider
 
 
   2. DownloadService.java
