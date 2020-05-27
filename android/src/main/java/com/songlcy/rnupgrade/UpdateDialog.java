@@ -32,9 +32,10 @@ class UpdateDialog {
         return context instanceof Activity && !((Activity) context).isFinishing();
     }
 
-    public static void goToDownload(Context context, String downloadUrl) {
+    public static void goToDownload(Context context, String downloadUrl, String hash) {
         Intent intent = new Intent(context.getApplicationContext(), DownloadService.class);
         intent.putExtra(Constants.APK_DOWNLOAD_URL, downloadUrl);
+        intent.putExtra(Constants.APK_HASH, hash);
         context.startService(intent);
     }
     

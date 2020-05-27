@@ -47,8 +47,8 @@ public class UpgradeModule extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public void upgrade(String apkUrl) {
-        UpdateDialog.goToDownload(context, apkUrl);
+    public void upgrade(String apkUrl, String hash) {
+        UpdateDialog.goToDownload(context, apkUrl,apkUrl);
     }
 
     public static void sendProgress(int msg) {
