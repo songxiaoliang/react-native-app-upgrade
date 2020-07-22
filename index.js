@@ -25,7 +25,7 @@ function handlerVersionString(version) {
  * @param version  本地版本
  */
 export async function checkUpdate(appId, version) {
-    if (ANDROID_PLATFORM) {
+    if (!ANDROID_PLATFORM) {
         try {
             const response = await fetch(
                 `https://itunes.apple.com/cn/lookup?id=${appId}&t=${Date.now()}`
