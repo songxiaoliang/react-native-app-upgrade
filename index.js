@@ -25,7 +25,7 @@ function handlerVersionString(version) {
  * @param version  本地版本
  */
 export async function checkUpdate(appId, version) {
-    if (ANDROID_PLATFORM) {
+    if (!ANDROID_PLATFORM) {
         try {
             const response = await fetch(
                 `https://itunes.apple.com/cn/lookup?id=${appId}&t=${Date.now()}`
@@ -87,3 +87,6 @@ export const addDownLoadListener = (callBack) => {
         return DeviceEventEmitter.addListener('LOAD_PROGRESS', callBack);
     }
 };
+
+/** app版本号，如1.0.1 */
+export const versionName = RNUpgrade.versionName;
