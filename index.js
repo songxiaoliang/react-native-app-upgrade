@@ -87,3 +87,6 @@ export const addDownLoadListener = (callBack) => {
         return DeviceEventEmitter.addListener('LOAD_PROGRESS', callBack);
     }
 };
+
+/** app版本号，如1.0.1 */
+export const versionName = RNUpgrade.versionName;
