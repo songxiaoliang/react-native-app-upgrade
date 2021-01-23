@@ -1,5 +1,5 @@
 
-React Native App 版本升级封装库，兼容Android 4 - 9 版本
+React Native App 版本升级封装库，兼容Android 4 - 10 版本
 
 ### 一、功能
 #### Android
