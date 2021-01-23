@@ -22,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/songxiaoliang/react-native-app-upgrade/issues"
   },
-  "homepage": "https://github.com/songxiaoliang/react-native-app-upgrade#readme"
+  "homepage": "https://github.com/songxiaoliang/react-native-app-upgrade#readme",
+  "dependencies": {
+    "rn-fetch-blob": "^0.12.0"
+  }
 }
