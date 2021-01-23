@@ -1,0 +1,5 @@
+R_DEF: Internal format may change without notice
+local
+string android_auto_update_download_progress
+string app_name
+xml update_file_provider

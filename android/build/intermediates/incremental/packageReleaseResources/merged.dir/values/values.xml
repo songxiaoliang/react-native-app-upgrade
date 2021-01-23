@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="android_auto_update_download_progress">正在下载:%1$d%%</string>
+    <string name="app_name">upgrade</string>
+</resources>

@@ -1,0 +1,83 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /Users/songlcy/rnapp/node_modules/rn-app-upgrade/android/src/main/AndroidManifest.xml:2:1-27:12
+INJECTED from /Users/songlcy/rnapp/node_modules/rn-app-upgrade/android/src/main/AndroidManifest.xml:2:1-27:12
+INJECTED from /Users/songlcy/rnapp/node_modules/rn-app-upgrade/android/src/main/AndroidManifest.xml:2:1-27:12
+INJECTED from /Users/songlcy/rnapp/node_modules/rn-app-upgrade/android/src/main/AndroidManifest.xml:2:1-27:12
+INJECTED from /Users/songlcy/rnapp/node_modules/rn-app-upgrade/android/src/main/AndroidManifest.xml:2:1-27:12
+INJECTED from /Users/songlcy/rnapp/node_modules/rn-app-upgrade/android/src/main/AndroidManifest.xml:2:1-27:12
+INJECTED from /Users/songlcy/rnapp/node_modules/rn-app-upgrade/android/src/main/AndroidManifest.xml:2:1-27:12
+	package
+		ADDED from /Users/songlcy/rnapp/node_modules/rn-app-upgrade/android/src/main/AndroidManifest.xml:3:5-36
+		INJECTED from /Users/songlcy/rnapp/node_modules/rn-app-upgrade/android/src/main/AndroidManifest.xml
+		INJECTED from /Users/songlcy/rnapp/node_modules/rn-app-upgrade/android/src/main/AndroidManifest.xml
+	android:versionName
+		INJECTED from /Users/songlcy/rnapp/node_modules/rn-app-upgrade/android/src/main/AndroidManifest.xml
+		ADDED from /Users/songlcy/rnapp/node_modules/rn-app-upgrade/android/src/main/AndroidManifest.xml:2:1-27:12
+		INJECTED from /Users/songlcy/rnapp/node_modules/rn-app-upgrade/android/src/main/AndroidManifest.xml
+	android:versionCode
+		INJECTED from /Users/songlcy/rnapp/node_modules/rn-app-upgrade/android/src/main/AndroidManifest.xml
+		ADDED from /Users/songlcy/rnapp/node_modules/rn-app-upgrade/android/src/main/AndroidManifest.xml:2:1-27:12
+		INJECTED from /Users/songlcy/rnapp/node_modules/rn-app-upgrade/android/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /Users/songlcy/rnapp/node_modules/rn-app-upgrade/android/src/main/AndroidManifest.xml:2:11-69
+uses-permission#android.permission.INTERNET
+ADDED from /Users/songlcy/rnapp/node_modules/rn-app-upgrade/android/src/main/AndroidManifest.xml:5:5-67
+	android:name
+		ADDED from /Users/songlcy/rnapp/node_modules/rn-app-upgrade/android/src/main/AndroidManifest.xml:5:22-64
+uses-permission#android.permission.REQUEST_INSTALL_PACKAGES
+ADDED from /Users/songlcy/rnapp/node_modules/rn-app-upgrade/android/src/main/AndroidManifest.xml:7:5-83
+	android:name
+		ADDED from /Users/songlcy/rnapp/node_modules/rn-app-upgrade/android/src/main/AndroidManifest.xml:7:22-80
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from /Users/songlcy/rnapp/node_modules/rn-app-upgrade/android/src/main/AndroidManifest.xml:8:5-81
+	android:name
+		ADDED from /Users/songlcy/rnapp/node_modules/rn-app-upgrade/android/src/main/AndroidManifest.xml:8:22-78
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+ADDED from /Users/songlcy/rnapp/node_modules/rn-app-upgrade/android/src/main/AndroidManifest.xml:9:5-80
+	android:name
+		ADDED from /Users/songlcy/rnapp/node_modules/rn-app-upgrade/android/src/main/AndroidManifest.xml:9:22-77
+uses-permission#android.permission.INSTALL_PACKAGES
+ADDED from /Users/songlcy/rnapp/node_modules/rn-app-upgrade/android/src/main/AndroidManifest.xml:10:5-75
+	android:name
+		ADDED from /Users/songlcy/rnapp/node_modules/rn-app-upgrade/android/src/main/AndroidManifest.xml:10:22-72
+uses-permission#android.permission.DELETE_PACKAGES
+ADDED from /Users/songlcy/rnapp/node_modules/rn-app-upgrade/android/src/main/AndroidManifest.xml:11:5-74
+	android:name
+		ADDED from /Users/songlcy/rnapp/node_modules/rn-app-upgrade/android/src/main/AndroidManifest.xml:11:22-71
+uses-permission#android.permission.ACCESS_SUPERUSER
+ADDED from /Users/songlcy/rnapp/node_modules/rn-app-upgrade/android/src/main/AndroidManifest.xml:12:5-75
+	android:name
+		ADDED from /Users/songlcy/rnapp/node_modules/rn-app-upgrade/android/src/main/AndroidManifest.xml:12:22-72
+application
+ADDED from /Users/songlcy/rnapp/node_modules/rn-app-upgrade/android/src/main/AndroidManifest.xml:14:5-25:19
+provider#com.songlcy.rnupgrade.adapter.FileProviderAdapter
+ADDED from /Users/songlcy/rnapp/node_modules/rn-app-upgrade/android/src/main/AndroidManifest.xml:15:9-23:20
+	android:grantUriPermissions
+		ADDED from /Users/songlcy/rnapp/node_modules/rn-app-upgrade/android/src/main/AndroidManifest.xml:19:13-47
+	android:authorities
+		ADDED from /Users/songlcy/rnapp/node_modules/rn-app-upgrade/android/src/main/AndroidManifest.xml:17:13-70
+	android:exported
+		ADDED from /Users/songlcy/rnapp/node_modules/rn-app-upgrade/android/src/main/AndroidManifest.xml:18:13-37
+	android:name
+		ADDED from /Users/songlcy/rnapp/node_modules/rn-app-upgrade/android/src/main/AndroidManifest.xml:16:13-56
+meta-data#android.support.FILE_PROVIDER_PATHS
+ADDED from /Users/songlcy/rnapp/node_modules/rn-app-upgrade/android/src/main/AndroidManifest.xml:20:13-22:64
+	android:resource
+		ADDED from /Users/songlcy/rnapp/node_modules/rn-app-upgrade/android/src/main/AndroidManifest.xml:22:17-61
+	android:name
+		ADDED from /Users/songlcy/rnapp/node_modules/rn-app-upgrade/android/src/main/AndroidManifest.xml:21:17-67
+uses-sdk
+INJECTED from /Users/songlcy/rnapp/node_modules/rn-app-upgrade/android/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /Users/songlcy/rnapp/node_modules/rn-app-upgrade/android/src/main/AndroidManifest.xml
+INJECTED from /Users/songlcy/rnapp/node_modules/rn-app-upgrade/android/src/main/AndroidManifest.xml
+INJECTED from /Users/songlcy/rnapp/node_modules/rn-app-upgrade/android/src/main/AndroidManifest.xml
+INJECTED from /Users/songlcy/rnapp/node_modules/rn-app-upgrade/android/src/main/AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from /Users/songlcy/rnapp/node_modules/rn-app-upgrade/android/src/main/AndroidManifest.xml
+		ADDED from /Users/songlcy/rnapp/node_modules/rn-app-upgrade/android/src/main/AndroidManifest.xml
+		INJECTED from /Users/songlcy/rnapp/node_modules/rn-app-upgrade/android/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /Users/songlcy/rnapp/node_modules/rn-app-upgrade/android/src/main/AndroidManifest.xml
+		ADDED from /Users/songlcy/rnapp/node_modules/rn-app-upgrade/android/src/main/AndroidManifest.xml
+		INJECTED from /Users/songlcy/rnapp/node_modules/rn-app-upgrade/android/src/main/AndroidManifest.xml

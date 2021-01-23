@@ -88,10 +88,5 @@ RCT_EXPORT_METHOD(openAPPStore:(NSString *)storeappID ){
 
 }
 
-- (NSDictionary *)constantsToExport {
-  NSDictionary *infoDic=[[NSBundle mainBundle] infoDictionary];
-  NSString*currentVersion=infoDic[@"CFBundleShortVersionString"];
-  return @{ @"versionName": currentVersion };
-}
 
 @end

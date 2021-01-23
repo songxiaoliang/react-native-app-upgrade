@@ -1,5 +1,5 @@
 
-React Native App 版本升级封装库，兼容Android 4 - 10 版本、iOS所有版本
+React Native App 版本升级封装库，兼容Android 4 - 9 版本
 
 ### 一、功能
 #### Android
@@ -19,38 +19,12 @@ React Native App 版本升级封装库，兼容Android 4 - 10 版本、iOS所有
 ### 二、使用
 
 ```xml
-  yarn add rn-app-upgrade
+  yarn add react-native-app-upgrade
 
   // 低于0.6+版本
-  react-native link rn-app-upgrade
+  react-native link react-native-app-upgrade
 ```
-#### 注意
-如果使用的RN版本低于0.6，则默认不支持androidx，则需要单独修改几个如下几个文件，使用import android support库中对应的文件
-```java
-  1. ApkDonLoadSuccessReceiver.java
 
-  import androidx.core.content.FileProvider
-  更改为:
-  import android.support.v4.content.FileProvider
-
-
-  2. DownloadService.java
-
-  import androidx.core.app.NotificationCompat.Builder
-  更改为:
-  import android.support.v4.NotificationCompat.Builder
-  
-  import androidx.core.content.FileProvider
-  更改为:
-  import android.support.v4.content.FileProvider
-
-
-  3. FileProviderAdapter.java
-
-  import androidx.core.content.FileProvider
-  更改为:
-  import android.support.v4.content.FileProvider
-```
 iOS
 打开Xcode, 将 ios_upgrade 导入到项目目录。
 
@@ -64,7 +38,7 @@ iOS
     openAPPStore,
     checkIOSUpdate,
     addDownLoadListener,
-  } from 'rn-app-upgrade';
+  } from 'react-native-app-upgrade';
   
   //可通过RN.versionName获取apk版本号和远程版本号进行比较
   if(Android) {
@@ -72,7 +46,7 @@ iOS
       upgrade(res.apkUrl);
     }
   } else {
-    const IOSUpdateInfo = await checkUpdate(appid, 当前版本号);
+    const IOSUpdateInfo = await checkIOSUpdate(appid, 当前版本号);
     IOSUpdateInfo.code // -1: 未查询到该App 或 网络错误 1: 有最新版本 0: 没有新版本
     IOSUpdateInfo.msg
     IOSUpdateInfo.version

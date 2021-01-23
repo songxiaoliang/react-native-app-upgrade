@@ -1,0 +1,56 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.songlcy.rnupgrade"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="16"
+8-->/Users/songlcy/rnapp/node_modules/rn-app-upgrade/android/src/main/AndroidManifest.xml
+9        android:targetSdkVersion="28" />
+9-->/Users/songlcy/rnapp/node_modules/rn-app-upgrade/android/src/main/AndroidManifest.xml
+10
+11    <uses-permission android:name="android.permission.INTERNET" />
+11-->/Users/songlcy/rnapp/node_modules/rn-app-upgrade/android/src/main/AndroidManifest.xml:5:5-67
+11-->/Users/songlcy/rnapp/node_modules/rn-app-upgrade/android/src/main/AndroidManifest.xml:5:22-64
+12    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+12-->/Users/songlcy/rnapp/node_modules/rn-app-upgrade/android/src/main/AndroidManifest.xml:7:5-83
+12-->/Users/songlcy/rnapp/node_modules/rn-app-upgrade/android/src/main/AndroidManifest.xml:7:22-80
+13    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+13-->/Users/songlcy/rnapp/node_modules/rn-app-upgrade/android/src/main/AndroidManifest.xml:8:5-81
+13-->/Users/songlcy/rnapp/node_modules/rn-app-upgrade/android/src/main/AndroidManifest.xml:8:22-78
+14    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+14-->/Users/songlcy/rnapp/node_modules/rn-app-upgrade/android/src/main/AndroidManifest.xml:9:5-80
+14-->/Users/songlcy/rnapp/node_modules/rn-app-upgrade/android/src/main/AndroidManifest.xml:9:22-77
+15    <uses-permission android:name="android.permission.INSTALL_PACKAGES" />
+15-->/Users/songlcy/rnapp/node_modules/rn-app-upgrade/android/src/main/AndroidManifest.xml:10:5-75
+15-->/Users/songlcy/rnapp/node_modules/rn-app-upgrade/android/src/main/AndroidManifest.xml:10:22-72
+16    <uses-permission android:name="android.permission.DELETE_PACKAGES" />
+16-->/Users/songlcy/rnapp/node_modules/rn-app-upgrade/android/src/main/AndroidManifest.xml:11:5-74
+16-->/Users/songlcy/rnapp/node_modules/rn-app-upgrade/android/src/main/AndroidManifest.xml:11:22-71
+17    <uses-permission android:name="android.permission.ACCESS_SUPERUSER" />
+17-->/Users/songlcy/rnapp/node_modules/rn-app-upgrade/android/src/main/AndroidManifest.xml:12:5-75
+17-->/Users/songlcy/rnapp/node_modules/rn-app-upgrade/android/src/main/AndroidManifest.xml:12:22-72
+18
+19    <application>
+19-->/Users/songlcy/rnapp/node_modules/rn-app-upgrade/android/src/main/AndroidManifest.xml:14:5-25:19
+20        <provider
+20-->/Users/songlcy/rnapp/node_modules/rn-app-upgrade/android/src/main/AndroidManifest.xml:15:9-23:20
+21            android:name="com.songlcy.rnupgrade.adapter.FileProviderAdapter"
+21-->/Users/songlcy/rnapp/node_modules/rn-app-upgrade/android/src/main/AndroidManifest.xml:16:13-56
+22            android:authorities="dollar_openBracket_applicationId_closeBracket.updateFileProvider"
+22-->/Users/songlcy/rnapp/node_modules/rn-app-upgrade/android/src/main/AndroidManifest.xml:17:13-70
+23            android:exported="false"
+23-->/Users/songlcy/rnapp/node_modules/rn-app-upgrade/android/src/main/AndroidManifest.xml:18:13-37
+24            android:grantUriPermissions="true" >
+24-->/Users/songlcy/rnapp/node_modules/rn-app-upgrade/android/src/main/AndroidManifest.xml:19:13-47
+25            <meta-data
+25-->/Users/songlcy/rnapp/node_modules/rn-app-upgrade/android/src/main/AndroidManifest.xml:20:13-22:64
+26                android:name="android.support.FILE_PROVIDER_PATHS"
+26-->/Users/songlcy/rnapp/node_modules/rn-app-upgrade/android/src/main/AndroidManifest.xml:21:17-67
+27                android:resource="@xml/update_file_provider" />
+27-->/Users/songlcy/rnapp/node_modules/rn-app-upgrade/android/src/main/AndroidManifest.xml:22:17-61
+28        </provider>
+29    </application>
+30
+31</manifest>
