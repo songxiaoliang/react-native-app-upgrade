@@ -32,7 +32,7 @@ iOS
 ```javascript
 
   import { 
-    upgrade,
+    downloadApk,
     versionName,
     versionCode,
     openAPPStore,
@@ -43,7 +43,13 @@ iOS
   //可通过RN.versionName获取apk版本号和远程版本号进行比较
   if(Android) {
     if(res.versionCode > versionCode) {
-      upgrade(res.apkUrl);
+        downloadApk({
+            apkUrl: "https://xxxx.apk",
+            downloadInstall: true,
+            callback: {
+                onProgress: (progress) => {}
+            },
+        });
     }
   } else {
     const IOSUpdateInfo = await checkIOSUpdate(appid, 当前版本号);
@@ -51,9 +57,4 @@ iOS
     IOSUpdateInfo.msg
     IOSUpdateInfo.version
   }
-```
-
-如果需要接收下载进度，可通过如下方式：
-```javascript
-   addDownLoadListener((progress) => {});
 ```
