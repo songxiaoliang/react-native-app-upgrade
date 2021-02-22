@@ -47,7 +47,8 @@ iOS
             apkUrl: "https://xxxx.apk",
             downloadInstall: true,
             callback: {
-                onProgress: (progress) => {}
+                onProgress: (progress) => {},
+                onFailure: (errorMessage, statusCode) => {};
             },
         });
     }
