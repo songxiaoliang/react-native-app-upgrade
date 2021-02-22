@@ -90,6 +90,9 @@ export const downloadApk = async ({
         .fetch('GET', apkUrl)
         .progress((received, total) => {
             callback?.onProgress((received / total).toFixed(2) * 100);
+        })
+        .catch((errorMessage, statusCode) => {
+          callback?.onFailure(errorMessage, statusCode);
         });
     if (downloadInstall) {
         const apkFileExist = await checkApkFileExist();
