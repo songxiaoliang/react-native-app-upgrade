@@ -78,7 +78,7 @@ export const openAPPStore = (appid) => {
 export const downloadApk = async ({
     apkUrl,
     callback,
-    listenCount = 10,
+    interval = 250,
     downloadInstall = true
 }) => {
     // const apkHasDownload = await checkApkFileExist();
@@ -89,7 +89,7 @@ export const downloadApk = async ({
     const downloadTask = await RNFetchBlob
         .config({ path: downloadApkFilePath })
         .fetch('GET', apkUrl)
-        .progress({ count: listenCount }, (received, total) => {
+        .progress({ interval }, (received, total) => {
             callback?.onProgress(received, total);
         })
         .catch((errorMessage, statusCode) => {
