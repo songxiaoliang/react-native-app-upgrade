@@ -44,6 +44,7 @@ iOS
   if(Android) {
     if(res.versionCode > versionCode) {
         downloadApk({
+            interval: 666, // listen to upload progress event, emit every 666ms
             apkUrl: "https://xxxx.apk",
             downloadInstall: true,
             callback: {
