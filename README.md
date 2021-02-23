@@ -48,7 +48,7 @@ iOS
             downloadInstall: true,
             callback: {
                 onProgress: (progress) => {},
-                onFailure: (errorMessage, statusCode) => {};
+                onFailure: (errorMessage, statusCode) => {}
             },
         });
     }
