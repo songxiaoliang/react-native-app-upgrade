@@ -90,7 +90,7 @@ export const downloadApk = async ({
         .config({ path: downloadApkFilePath })
         .fetch('GET', apkUrl)
         .progress({ interval }, (received, total) => {
-            callback?.onProgress(received, total);
+            callback?.onProgress(received, total, (received / total * 100).toFixed(0));
         })
         .catch((errorMessage, statusCode) => {
           callback?.onFailure(errorMessage, statusCode);
