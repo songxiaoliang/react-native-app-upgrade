@@ -21,7 +21,7 @@ React Native App 版本升级封装库，兼容Android4以上所有版本
 ```xml
   yarn add rn-app-upgrade
  
-  // 低于0.6+版本
+  // less than 0.6
   react-native link rn-app-upgrade
 ```
 
