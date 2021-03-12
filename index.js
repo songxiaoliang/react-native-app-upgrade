@@ -19,6 +19,22 @@ function handlerVersionString(version) {
     return number;
 }
 
+//把字节转换成正常文件大小
+function getFilesize(size) {
+    if (!size)  return "";
+    var num = 1024.00; //byte
+    if (size < num)
+        return size + "B";
+    if (size < (num ** 2))
+        return (size / num).toFixed(1) + "KB"; //kb
+    if (size < Math.pow(num, 3))
+        return (size / (num ** 2)).toFixed(1) + "MB"; //M
+    if (size < (num ** 4))
+        return (size / (num ** 3)).toFixed(1) + "G"; //G
+    return (size / (num ** 4)).toFixed(1) + "T"; //T
+}
+
+
 /**
  * IOS检测更新
  * @param appId   appstore的应用id
@@ -90,7 +106,7 @@ export const downloadApk = async ({
         .config({ path: downloadApkFilePath })
         .fetch('GET', apkUrl)
         .progress({ interval }, (received, total) => {
-            callback?.onProgress(received, total, (received / total * 100).toFixed(0));
+            callback?.onProgress(getFilesize(received), getFilesize(total), parseInt((received / total * 100)));
         })
         .catch((errorMessage, statusCode) => {
           callback?.onFailure(errorMessage, statusCode);
