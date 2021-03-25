@@ -6,7 +6,6 @@ import RNFetchBlob from 'rn-fetch-blob';
 
 const RNUpgrade = NativeModules.upgrade;
 const ANDROID_PLATFORM = Platform.OS === 'android';
-const downloadApkFilePath = RNUpgrade.downloadApkFilePath;
 
 function handlerVersionString(version) {
     let versions = version.split('.');
@@ -97,13 +96,14 @@ export const downloadApk = async ({
     interval = 250,
     downloadInstall = true
 }) => {
-    // const apkHasDownload = await checkApkFileExist();
+	const apkFilePath = RNUpgrade.downloadApkFilePath;
+	// const apkHasDownload = await RNFetchBlob.fs.exists(downloadApkFilePath);
     // if (apkHasDownload) {
     //     RNUpgrade.installApk(downloadApkFilePath);
     //     return;
     // }
     const downloadTask = await RNFetchBlob
-        .config({ path: downloadApkFilePath })
+        .config({ path: apkFilePath })
         .fetch('GET', apkUrl)
         .progress({ interval }, (received, total) => {
             callback?.onProgress(getFilesize(received), getFilesize(total), parseInt((received / total * 100)));
@@ -113,14 +113,7 @@ export const downloadApk = async ({
         });
     if (downloadInstall) {
         const apkFileExist = await checkApkFileExist();
-        apkFileExist && RNUpgrade.installApk(downloadApkFilePath);
+        apkFileExist && RNUpgrade.installApk(apkFilePath);
     }
-}
-
-/**
- * 检查apk文件是否已下载
- */
-const checkApkFileExist = async () => {
-    return await RNFetchBlob.fs.exists(downloadApkFilePath);
 }
 
