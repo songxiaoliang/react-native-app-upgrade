@@ -97,7 +97,7 @@ export const downloadApk = async ({
     downloadInstall = true
 }) => {
 	const apkFilePath = RNUpgrade.downloadApkFilePath;
-	// const apkHasDownload = await RNFetchBlob.fs.exists(downloadApkFilePath);
+	// const apkHasDownload = await checkApkFileExist(apkFilePath);
     // if (apkHasDownload) {
     //     RNUpgrade.installApk(downloadApkFilePath);
     //     return;
@@ -112,8 +112,16 @@ export const downloadApk = async ({
           callback?.onFailure(errorMessage, statusCode);
         });
     if (downloadInstall) {
-        const apkFileExist = await checkApkFileExist();
+        const apkFileExist = await checkApkFileExist(apkFilePath);
         apkFileExist && RNUpgrade.installApk(apkFilePath);
     }
+}
+
+/**
+ * 检查本地是否有apk文件
+ * @param apkFilePath 下载的apk文件路径
+ */
+const checkApkFileExist = async (apkFilePath) => {
+    return await RNFetchBlob.fs.exists(apkFilePath);
 }
 
