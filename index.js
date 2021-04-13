@@ -111,6 +111,7 @@ export const downloadApk = async ({
         .catch((errorMessage, statusCode) => {
           callback?.onFailure(errorMessage, statusCode);
         });
+    callback?.onComplete();
     if (downloadInstall) {
         const apkFileExist = await checkApkFileExist(apkFilePath);
         apkFileExist && RNUpgrade.installApk(apkFilePath);
