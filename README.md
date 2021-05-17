@@ -52,7 +52,8 @@ iOS
             downloadInstall: true,
             callback: {
                 onProgress: (received, total， percent) => {},
-                onFailure: (errorMessage, statusCode) => {}
+                onFailure: (errorMessage, statusCode) => {},
+                onComplete: () => {},
             },
         });
     }
