@@ -111,12 +111,15 @@ export const downloadApk = async ({
         .catch((errorMessage, statusCode) => {
           callback?.onFailure(errorMessage, statusCode);
         });
-    callback?.onComplete();
-    if (downloadInstall) {
-        const apkFileExist = await checkApkFileExist(apkFilePath);
-        apkFileExist && RNUpgrade.installApk(apkFilePath);
+
+    const apkFileExist = await checkApkFileExist(apkFilePath);
+    if (downloadInstall && apkFileExist) {
+        RNUpgrade.installApk(apkFilePath);
     }
+    callback?.onComplete(apkFileExist ? apkFilePath : null);
 }
+
+export const installApk = RNUpgrade.installApk;
 
 /**
  * 检查本地是否有apk文件
