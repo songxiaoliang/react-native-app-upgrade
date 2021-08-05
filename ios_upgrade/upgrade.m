@@ -83,7 +83,7 @@ RCT_EXPORT_METHOD(upgrade:(NSString *)storeappID callback:(RCTResponseSenderBloc
 }
 RCT_EXPORT_METHOD(openAPPStore:(NSString *)storeappID ){
   //此处加入应用在app store的地址，方便用户去更新，一种实现方式如下
-  NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://itunes.apple.com/us/app/id%@?ls=1&mt=8", storeappID]];
+  NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://itunes.apple.com/app/id%@?ls=1&mt=8", storeappID]];
   [[UIApplication sharedApplication] openURL:url];
 
 }
