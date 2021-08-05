@@ -119,7 +119,7 @@ export const downloadApk = async ({
     callback?.onComplete(apkFileExist ? apkFilePath : null);
 }
 
-export const installApk = ANDROID_PLATFORM ? RNUpgrade.installApk : null;
+export const installApk = RNUpgrade.installApk;
 
 /**
  * 检查本地是否有apk文件
