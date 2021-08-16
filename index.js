@@ -90,7 +90,7 @@ export const openAPPStore = (appid) => {
  * @param apkUrl Apk Url
  * @param callback 下载结果回调
  */
-export const downloadApk = async ({
+export const downloadApk = ({
     apkUrl,
     callback,
     interval = 250,
@@ -102,21 +102,25 @@ export const downloadApk = async ({
     //     RNUpgrade.installApk(downloadApkFilePath);
     //     return;
     // }
-    const downloadTask = await RNFetchBlob
+    const downloadTask = RNFetchBlob
         .config({ path: apkFilePath })
-        .fetch('GET', apkUrl)
-        .progress({ interval }, (received, total) => {
-            callback?.onProgress(getFilesize(received), getFilesize(total), parseInt((received / total * 100)));
-        })
-        .catch((errorMessage, statusCode) => {
-          callback?.onFailure(errorMessage, statusCode);
-        });
+        .fetch('GET', apkUrl);
 
-    const apkFileExist = await checkApkFileExist(apkFilePath);
-    if (downloadInstall && apkFileExist) {
-        RNUpgrade.installApk(apkFilePath);
-    }
-    callback?.onComplete(apkFileExist ? apkFilePath : null);
+    downloadTask.progress({ interval }, (received, total) => {
+        callback?.onProgress(getFilesize(received), getFilesize(total), parseInt((received / total * 100)));
+    })
+    .then(async () => {
+	const apkFileExist = await checkApkFileExist(apkFilePath);
+
+	if (downloadInstall && apkFileExist) {
+	    RNUpgrade.installApk(apkFilePath);
+	}
+	callback?.onComplete(apkFileExist ? apkFilePath : null);
+    })
+    .catch((errorMessage, statusCode) => {
+        callback?.onFailure(errorMessage, statusCode);
+    });
+    return downloadTask;
 }
 
 export const installApk = RNUpgrade.installApk;
