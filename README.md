@@ -1,6 +1,8 @@
 
 React Native App 版本升级封装库，兼容Android4以上所有版本
 
+⚠️ 如遇到lStar编译失败问题，请将build & target version 改成 31
+
 ### 一、功能
 #### Android
 ```xml
